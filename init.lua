@@ -160,6 +160,9 @@ require('lazy').setup({
         component_separators = '|',
         section_separators = '',
       },
+      tabline = {
+        lualine_a = { 'buffers' },
+      },
     },
   },
 
