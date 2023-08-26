@@ -461,7 +461,7 @@ local servers = {
   gopls = {},
   -- pyright = {},
   rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -544,6 +544,14 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+-- Automatically fix imports in Go files on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.go',
+  callback = function()
+    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+  end
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
