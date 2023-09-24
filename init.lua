@@ -208,6 +208,11 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    'dense-analysis/ale',
+    lazy = false,
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -548,20 +553,13 @@ cmp.setup {
   },
 }
 
--- Automatically fix imports in Go files on save
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.go',
-  callback = function()
-    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-  end
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*.go',
-  callback = function()
-    vim.lsp.buf.format()
-  end
-})
+vim.g.ale_go_golangci_lint_package = 1
+vim.g.ale_fix_on_save = 1
+vim.cmd [[
+let g:ale_fixers = {
+\  'go': ['gofmt', 'goimports', 'gopls'],
+\ }
+]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
