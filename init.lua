@@ -555,11 +555,9 @@ cmp.setup {
 
 vim.g.ale_go_golangci_lint_package = 1
 vim.g.ale_fix_on_save = 1
-vim.cmd [[
-let g:ale_fixers = {
-\  'go': ['gofmt', 'goimports', 'gopls'],
-\ }
-]]
+vim.g.ale_fixers = {
+  ['go'] = {'gofmt', 'goimports', 'gopls'},
+}
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
