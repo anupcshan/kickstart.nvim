@@ -557,6 +557,7 @@ vim.g.ale_go_golangci_lint_package = 1
 vim.g.ale_fix_on_save = 1
 vim.g.ale_fixers = {
   ['go'] = {'gofmt', 'goimports', 'gopls'},
+  ['typescriptreact'] = {'prettier'},
 }
 
 -- The line beneath this is called `modeline`. See `:help modeline`
