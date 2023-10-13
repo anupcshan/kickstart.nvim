@@ -565,6 +565,7 @@ vim.g.ale_fixers = {
 }
 
 vim.g.copilot_assume_mapped = true
+vim.api.nvim_set_keymap("i", "<C-K>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
