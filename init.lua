@@ -200,6 +200,12 @@ require('lazy').setup({
   },
 
   {
+    -- Show diagnostics/quickfix better to solve code issues
+    "folke/trouble.nvim",
+    opts = {},
+  },
+
+  {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
@@ -471,7 +477,7 @@ require('which-key').register({
 local servers = {
   -- clangd = {},
   gopls = {},
-  -- pyright = {},
+  pylsp = {},
   rust_analyzer = {},
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
