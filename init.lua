@@ -202,7 +202,9 @@ require('lazy').setup({
   {
     -- Show diagnostics/quickfix better to solve code issues
     "folke/trouble.nvim",
-    opts = {},
+    opts = {
+      icons = false,
+    },
   },
 
   {
